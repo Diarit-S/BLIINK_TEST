@@ -1,0 +1,410 @@
+
+
+/* RESET CSS */
+
+body{
+  font: 16px sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1,h2,h3,h4,p,ul,div,span,a{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 100;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  
+}
+
+*{
+  box-sizing: border-box;
+}
+
+/*  END RESETE CSS */
+
+
+header {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 100vw;
+  box-shadow: 0 3px 5px grey;
+  background-color: white;
+  z-index: 2;
+}
+
+header>a {
+  display: block;
+}
+
+
+.main-logo {
+  width: 100px;
+}
+
+menu {
+  position: fixed;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  background-color: white;
+  transition: transform 0.4s ease-in-out;
+  transform: translateX(-100%);
+  top: 60px;
+  border-right: solid 1px black; 
+  z-index: 3;
+}
+
+menu>nav {
+  height: 80%;
+}
+
+menu>nav ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+menu>nav ul li {
+  height: 50px;
+  padding-left: 20px; 
+  display: inline-block;
+  white-space: nowrap;
+}
+menu>nav ul li:hover {
+  cursor: pointer;
+  color: #72b6ba;
+  text-decoration: underline;
+}
+
+menu form input {
+  margin: 10px;
+  font-size: 1em;
+  width: 90%;
+  height: 40px;
+  border-radius: 5px; 
+  padding-left: 10px;
+  
+}
+
+
+/* Transition with the left menu in mobile viewport */
+
+.is-open {
+  transform: translateX(0);
+}
+
+.burger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.open-icon {
+  transition: background 0.8s ease-in-out;
+}
+
+.open-icon,
+.open-icon::before,
+.open-icon::after {
+  width: 21px;
+  height: 2.5px;
+  background: black;
+}
+
+.open-icon::before,
+.open-icon::after {
+  content: '';
+  display: block;
+  transition: transform 0.8s;
+}
+
+.open-icon::before {
+  transform: translateY(-8px);
+}
+
+.open-icon::after {
+  transform: translateY(6px);
+}
+
+.open-icon.is-open {
+  background-color: transparent;
+}
+
+.open-icon.is-open::before {
+  transform: translateY(1px) rotate(135deg);
+}
+
+.open-icon.is-open::after{
+  transform: translateY(-1px) rotate(-135deg);
+}
+
+
+/* End of the menu's transition */
+
+main {
+  position: relative;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  height: 800px;
+}
+
+main h2 {
+  max-width: 80vw;
+}
+
+main>ul {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  width: 300px;
+}
+
+main>ul li:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+main>ul li:not(:last-child)::after {
+  content: ' > ';
+  display: inline-block;
+  margin-left: 18px;
+}
+
+main>article {
+  height: 60%;
+  width: 100vw;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.adsContent {
+  position: relative;
+  height: 80%;
+  width: 90vw;
+  overflow: hidden;
+  background-color: white;
+}
+
+.adsContent>img {
+  width: 100%;
+}
+
+.adsContent__new {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+  display: grid;
+  padding: 10px;
+  grid-template-columns: repeat(5, 18%);
+  grid-template-rows: repeat(5, 18%);
+  grid-column-gap: 2%;
+  grid-row-gap: 2%;
+  transition: transform 1s ease-out;
+  /* animation: movedup 1s 2s forwards ease-out; */
+}
+
+
+.adsContent__new video {
+  grid-column: 1/6;
+}
+
+
+.adsContent__new video:hover {
+}
+
+.cross {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background-color: black;
+  border-radius: 50%;
+  right: 10px;
+  top: 10px; 
+  z-index: 2;
+}
+
+.cross:hover {
+  cursor: pointer;
+}
+
+
+.logo-sephora {
+  grid-column: 1;
+  grid-row: 5;
+  width: 300%;
+}
+
+.text_new {
+  display: none;
+}
+
+.discover {
+  border-radius: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8da84;
+  /* height: 50px; */
+  grid-column: 4/6;
+  grid-row: 5;
+  font-weight: bold;
+}
+
+.discover:hover {
+  cursor: pointer;
+}
+
+.parfum_title {
+  display: none;
+}
+
+.parfum_img {
+  display: none;
+}
+
+
+
+
+@media (min-width : 985px) {
+
+  header {
+    background-color: white;
+    box-shadow: none;
+    height: 200px;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .main-logo {
+    width: 300px;
+  }
+
+  .adsContent {
+    width: 70vw;
+  }
+
+  .adsContent__new video {
+    grid-column: 1/4;
+  }
+
+  .logo-sephora {
+    margin: auto;
+    grid-column: 4;
+    width: 100%;
+    grid-row: 5;
+  }
+
+  .discover {
+    grid-column: 3/4;
+  }
+
+  .text_new {
+    display: block;
+    grid-column: 1; 
+    grid-row: 5; 
+  }
+  
+  .parfum_title {
+    margin: auto;
+    width: 90%;
+    display: block;
+    grid-column:4/6; 
+    grid-row: 1; 
+  }
+
+  .parfum_img {
+    margin: auto;
+    display: block;
+    grid-column: 4/6;
+    grid-row: 3;
+  }
+
+
+  menu {
+    position: initial;
+    bottom: none;
+    width: 60vw;
+    height: auto;
+    background: none;
+    transition: transform 0.4s ease-in-out;
+    transform: translateX(0);
+    /* z-index: initial; */
+    border: none;
+  }
+  
+  menu>nav {
+    height: auto;
+  }
+  
+  menu>nav ul {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  menu>nav ul li {
+    display: inline-block;
+    height: 50px;
+    padding: 15px; 
+    display: inline-block;
+    vertical-align: bottom;
+  }
+  menu>nav ul li:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #72b6ba;
+    text-decoration: none;
+  }
+
+  menu form input {
+    display: none;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  main {
+    top: 200px;
+  }
+}
+
+
+@media (min-width : 1024px) {
+  main>article {
+    height: 80%;
+  }
+  /* .adsContent {
+    width: 65vw;
+  } */
+}
